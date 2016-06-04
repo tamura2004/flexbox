@@ -1,0 +1,22 @@
+{
+  "name": "dotinstall_flexbox",
+  "description": "static site develop with gulp",
+  "main": "index.js",
+  "authors": [
+    "tamura2004"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "reset-css": "^2.0.2011012603"
+  }
+}

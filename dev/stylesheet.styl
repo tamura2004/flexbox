@@ -1,0 +1,45 @@
+@import "_reset"
+
+.flex-item
+  display flex
+  flex 1 1 10%
+  // flex 1 1 auto
+
+body
+
+.page
+  background #222
+  color white
+  height 100vh
+  width 50vw
+  display flex
+  flex-direction column
+
+.rows
+  @extend .flex-item
+  flex-direction column
+
+.cols
+  @extend .flex-item
+
+.box
+  @extend .flex-item
+  border 2px solid white
+  border-radius 4px
+  margin 4px
+  padding 4px
+
+.clicked
+  background white
+
+.underline
+  text-decoration underline
+
+.center
+  text-align center
+
+for i in (1..10)
+  .f{i}
+    flex i 1 (10*i)%
+    // flex i 1 auto
+

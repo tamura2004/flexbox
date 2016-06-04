@@ -1,0 +1,14 @@
+name: ダヤーン
+player: 鈴木
+race: ドワーフ
+main_job: ウォーリア
+sub_job: モンク
+level: 20
+ability_names:
+  - 筋力
+  - 敏捷
+  - 耐久
+  - 理力
+  - 信仰
+  - 魅力
+abilities: [18,16,12,12,16,16]
