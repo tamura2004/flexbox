@@ -1,0 +1,36 @@
+.page#1
+  .cols
+    .box.f2
+      .rows
+        p= config.name
+        p= config.player
+        p= config.race
+      .rows
+        p= config.main_job
+        p= config.sub_job
+        p レベル#{config.level}
+    .box.center
+      .rows
+        p HP
+        p.underline 2056
+        p 2056
+      .rows
+        p MP
+        p.underline 100
+        p 100
+  .cols.f2
+    .box
+      .rows.f2
+        each name in config.ability_names
+          p= name
+      .rows
+        each val in config.abilities
+          p= val
+    .box.f3
+  .cols.f5
+    .box
+  .cols.f1
+    .box 武器
+    .box 呪文
+    .box アイテム
+    .box 逃げる

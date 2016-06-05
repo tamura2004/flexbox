@@ -26,12 +26,15 @@ csscomb = require "gulp-csscomb"
 vinylYamlData = require "vinyl-yaml-data"
 deepExtend = require "deep-extend-stream"
 
+#bower
+bower = require "gulp-bower"
+
 #開発ディレクトリ
 dev =
   jade: "./dev/"
   stylus: "./dev/"
-  coffee:   "./dev/js/"
-  yaml:   "./dev/config.yml"
+  coffee: "./dev/"
+  yaml:   "./dev/"
 
 #公開ディレクトリ
 pub =
@@ -44,7 +47,7 @@ locals = {}
 
 #yaml読み込みタスク
 gulp.task "yaml", ->
-  return gulp.src "#{dev.yaml}"
+  return gulp.src "#{dev.yaml}config.yml"
   .pipe vinylYamlData()
   .pipe deepExtend(locals)
 
@@ -54,7 +57,7 @@ gulp.task "jade", ["yaml"], ->
     "#{dev.jade}**/*.jade",
     "!#{dev.jade}**/_*.jade"
   ]
-  .pipe cache "jade"
+  # .pipe cache "jade"
   .pipe plumber
     errorHandler: notify.onError "Error: <%= error.message %>"
   .pipe jade
@@ -87,7 +90,7 @@ gulp.task "stylus", ->
 
 #coffeeタスク
 gulp.task "coffee", ->
-  return gulp.src "#{dev.js}**/*.coffee"
+  return gulp.src "#{dev.coffee}**/*.coffee"
   .pipe cache "coffee"
   .pipe plumber
     errorHandler: notify.onError "Error: <%= error.message %>"
@@ -98,7 +101,7 @@ gulp.task "coffee", ->
 
 #jsファイル結合
 gulp.task "concat_ie", ->
-  return gulp.src "#{dev.js}ie/*.js"
+  return gulp.src "#{dev.coffee}ie/*.js"
     .pipe concat "ie.js"
     .pipe uglify()
     .pipe rename
@@ -114,11 +117,21 @@ gulp.task "browser", ->
     open: false,
     notify: false
 
+# bower
+gulp.task "jquery", ->
+  gulp.src "./bower_components/jquery/dist/jquery.min.js"
+    .pipe gulp.dest "./public"
+
+gulp.task "reset-css", ->
+  gulp.src "./bower_components/reset-css/reset.css"
+    .pipe gulp.dest "./public"
+
 #監視(jade, stylus, coffee)
-gulp.task "watch", ["browser"], ->
+gulp.task "watch", ["browser","jquery","reset-css"], ->
   gulp.watch "#{dev.jade}**/*.jade", ["jade"]
+  gulp.watch "#{dev.yaml}**/*.yml", ["jade"]
   gulp.watch "#{dev.stylus}**/*.styl", ["stylus"]
-  gulp.watch "#{dev.js}**/*.coffee", ["coffee"]
+  gulp.watch "#{dev.coffee}**/*.coffee", ["coffee"]
 
 #デフォルトタスク
 gulp.task "default", ["watch"]
