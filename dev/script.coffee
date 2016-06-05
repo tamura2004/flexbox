@@ -1,21 +1,22 @@
 $ ->
-  $("div").click ->
+  $("p").click ->
     $(@)
     .animate
       top: "-10px"
     , 200
     .animate
-      top: "-4px"
-    ,200
+      top: "0px"
+    , 200
     .animate
-      top: "-7px"
+      top: "-5px"
     , 100
     .animate
-      top: "-4px"
-    ,100
-    .animate
-      top: "-6px"
+      top: "0px"
     , 100
     .animate
-      top: "-4px"
-    ,100
+      top: "-2px"
+    , 50
+    .animate
+      top: "0px"
+    , 50
+
