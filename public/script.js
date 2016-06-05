@@ -1,17 +1,17 @@
 $(function() {
-  return $("div").click(function() {
+  return $(".box").click(function() {
     return $(this).animate({
       top: "-10px"
     }, 200).animate({
-      top: "-4px"
+      top: "0px"
     }, 200).animate({
-      top: "-7px"
+      top: "-5px"
     }, 100).animate({
-      top: "-4px"
+      top: "0px"
     }, 100).animate({
-      top: "-6px"
-    }, 100).animate({
-      top: "-4px"
-    }, 100);
+      top: "-2px"
+    }, 50).animate({
+      top: "0px"
+    }, 50);
   });
 });

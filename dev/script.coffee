@@ -1,5 +1,5 @@
 $ ->
-  $("p").click ->
+  $(".box").click ->
     $(@)
     .animate
       top: "-10px"
