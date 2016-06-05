@@ -1,29 +1,29 @@
 .page#1
   .cols
     .box.f2
-      .rows
+      .rows.space-around
         p= config.name
         p= config.player
         p= config.race
-      .rows
+      .rows.space-around
         p= config.main_job
         p= config.sub_job
         p レベル#{config.level}
     .box.center
-      .rows
+      .rows.space-around
         p HP
         p.underline 2056
         p 2056
-      .rows
+      .rows.space-around
         p MP
         p.underline 100
         p 100
   .cols.f2
     .box
-      .rows.f2
+      .rows.f2.space-around
         each name in config.ability_names
           p= name
-      .rows
+      .rows.space-around
         each val in config.abilities
           p= val
     .box.f3
