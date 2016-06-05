@@ -11,6 +11,10 @@
   justify-content: space-around;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 body,
 .page {
   display: flex;
@@ -32,6 +36,10 @@ body,
   border-radius: 4px;
 }
 
+h1 {
+  font-size: 24px;
+}
+
 .clicked {
   background: #fff;
 }
@@ -41,7 +49,7 @@ body,
 }
 
 .center {
-  text-align: center;
+  align-items: center;
 }
 
 .f1 {
